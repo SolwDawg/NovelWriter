@@ -21,7 +21,11 @@ importers:
         specifier: ^5.9.2
         version: 5.9.3
 
-  apps/api: {}
+  apps/api:
+    dependencies:
+      '@story-platform/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
 
   apps/web: {}
 

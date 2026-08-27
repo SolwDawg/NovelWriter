@@ -11,6 +11,8 @@
   "include": [
     "packages/contracts/generated/**/*.ts",
     "packages/contracts/src/**/*.ts",
-    "packages/domain-types/src/**/*.ts"
+    "packages/domain-types/src/**/*.ts",
+    "apps/api/src/**/*.ts",
+    "apps/api/test/**/*.ts"
   ]
 }
