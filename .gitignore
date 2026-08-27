@@ -1,0 +1,19 @@
+# Local credentials and environment files
+env
+env.txt
+.env
+.env.*
+!.env.example
+
+# Python caches and local benchmark output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated benchmark artifacts (stories and machine journals stay local)
+ai-short-story-platform-spec-pack-v2-reviewed/experiments/story-engine-v0/results/*/stories/
+ai-short-story-platform-spec-pack-v2-reviewed/experiments/story-engine-v0/results/*/human-review/*.txt
+ai-short-story-platform-spec-pack-v2-reviewed/experiments/story-engine-v0/results/*/progress.jsonl
+ai-short-story-platform-spec-pack-v2-reviewed/experiments/story-engine-v0/results/*/summary.jsonl
+ai-short-story-platform-spec-pack-v2-reviewed/experiments/story-engine-v0/results/*/summary.csv
+ai-short-story-platform-spec-pack-v2-reviewed/experiments/story-engine-v0/results/*/aggregate.json

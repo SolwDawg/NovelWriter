@@ -1,0 +1,23 @@
+# Architecture Decision Record Index — V2
+
+- ADR-0001: Scene-first hierarchical generation.
+- ADR-0002: NestJS owns domain truth; Python is AI compute.
+- ADR-0003: Temporal durable orchestration with separate workflow-worker process.
+- ADR-0004: PostgreSQL + pgvector before dedicated vector DB.
+- ADR-0005: Story Canon/State is not RAG.
+- ADR-0006: Structured SceneDocument with stable block IDs.
+- ADR-0007: Manual edits use dirty/reconciliation semantics.
+- ADR-0008: State Extractor is sole AI producer of ProposedStoryDelta.
+- ADR-0009: Large AI payloads use artifact references, not Temporal workflow state.
+- ADR-0010: V1 Model Router uses static configured routing.
+- ADR-0011: Redis retained; BullMQ not required for V1.
+- ADR-0012: S3-compatible ObjectStorage implementation remains replaceable/open.
+- ADR-0013: V0 engine proof required before full Alpha investment.
+- ADR-0014: V1 Alpha official scope = 3k–15k, one optimized language, 2–3 genres, Standard mode.
+- ADR-0015: Web Research deferred to V1.3; dependency repair to V1.5.
+- ADR-0016: Alpha benchmark language = Vietnamese; genres = Mystery, Thriller, Horror.
+- ADR-0017: TipTap/ProseMirror behind a replaceable structured-editor adapter.
+- ADR-0018: Drizzle plus SQL migrations behind ORM-independent repositories.
+- ADR-0019: Application-owned Argon2id + opaque server-side sessions for Alpha auth.
+- ADR-0020: MinIO locally/early self-hosted behind the S3-compatible ObjectStorage interface.
+- ADR-0021: Deterministic fixture provider is the initial V0 model configuration; live model pending benchmark.

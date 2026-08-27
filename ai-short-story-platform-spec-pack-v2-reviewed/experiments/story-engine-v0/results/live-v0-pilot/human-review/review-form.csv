@@ -1,0 +1,3 @@
+pair_id,candidate_a_file,candidate_b_file,preferred_candidate,coherence_a,coherence_b,engagement_a,engagement_b,character_consistency_a,character_consistency_b,ending_a,ending_b,tts_readability_a,tts_readability_b,repetition_a,repetition_b,comments
+mystery-short-01-baseline-b-vs-structured-c,mystery-short-01--candidate-0002.txt,mystery-short-01--candidate-0003.txt,,,,,,,,,,,,,,
+mystery-short-01-baseline-b-vs-structured-qa-d,mystery-short-01--candidate-0002.txt,mystery-short-01--candidate-0004.txt,,,,,,,,,,,,,,

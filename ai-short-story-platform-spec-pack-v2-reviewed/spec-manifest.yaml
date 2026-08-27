@@ -1,0 +1,37 @@
+version: 2.0-reviewed
+product: ai-short-story-platform
+review_date: 2026-08-27
+source_of_truth:
+  master_spec: docs/superpowers/specs/2026-08-27-ai-short-story-platform-v2-design.md
+  alpha_scope: specs/MVP_SCOPE.md
+  v0: specs/V0_ENGINE_PROOF.md
+  implementation_plan: docs/superpowers/plans/2026-08-27-ai-short-story-platform-v2-plan.md
+mandatory_architecture:
+  - architecture/SYSTEM_ARCHITECTURE.md
+  - architecture/STORY_DOMAIN_MODEL.md
+  - architecture/STORY_CONSISTENCY_RECONCILIATION.md
+  - architecture/GENERATION_ENGINE.md
+  - architecture/CONTEXT_MEMORY.md
+  - architecture/MODEL_ROUTER.md
+  - architecture/PERSISTENCE_DATA.md
+  - architecture/TEMPORAL_WORKFLOWS.md
+  - architecture/API_APPLICATION.md
+  - architecture/STORY_STUDIO_FRONTEND.md
+locked_boundaries:
+  product_truth: PostgreSQL
+  orchestration: Temporal
+  domain_api: NestJS
+  workflow_worker: TypeScript separate process
+  ai_compute: Python
+  cache_realtime: Redis
+  vector_mvp: PostgreSQL+pgvector
+  object_storage: S3-compatible abstraction
+alpha_excludes:
+  - web_research
+  - automatic_dependency_repair
+  - style_reference_analyzer
+  - adaptive_model_routing_control_plane
+  - audio_generation
+  - crdt_collaboration
+  - local_llm_serving
+  - kubernetes
