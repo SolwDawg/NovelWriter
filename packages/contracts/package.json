@@ -1,0 +1,12 @@
+{
+  "name": "@story-platform/contracts",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "tsx tests/contract-smoke.test.ts"
+  }
+}

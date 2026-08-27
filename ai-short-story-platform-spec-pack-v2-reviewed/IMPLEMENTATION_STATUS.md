@@ -19,6 +19,9 @@
 - The adapter accepts two local keys, rotates round-robin per request, tries at
   most one alternate key after HTTP 429, and applies a cooldown while keeping
   key values out of diagnostics.
+- Task 2 monorepo foundation is implemented at the repository root: canonical
+  JSON Schemas, TypeScript/Python equivalents, process shells, and development
+  Compose infrastructure.
 
 ## Verification
 
@@ -35,8 +38,31 @@ The offline result is documented in [`experiments/story-engine-v0/results/V0-GAT
 passing V0 gate: the free route rate-limited the structured multi-call path and
 the model outputs were below the target length in the baseline pilot.
 
-## Intentionally not started yet
+## Foundation verification
 
-The live-provider benchmark and human V0 gate are still pending. Therefore the
-NestJS/Next.js/Temporal/PostgreSQL production shell has not been built yet; this
-follows the spec's rule that V0 proof precedes full Alpha investment.
+From the repository root:
+
+```powershell
+pnpm install
+pnpm lint
+pnpm test
+pnpm typecheck
+pnpm test:python
+```
+
+The contract smoke test validates all eight fixtures against the canonical
+schemas with Ajv. API and web health shells were exercised locally. Docker
+Compose could not be executed on the implementation host because the Docker
+CLI is not installed; the Compose file is intended for the local development
+environment.
+
+## Deferred gate
+
+The live-provider benchmark and human V0 gate are still pending by explicit
+development-sequencing decision recorded in
+[`docs/adr/ADR-0022-benchmark-deferral.md`](docs/adr/ADR-0022-benchmark-deferral.md).
+[`experiments/story-engine-v0/results/V0-GATE.md`](experiments/story-engine-v0/results/V0-GATE.md)
+remains `NOT READY`; no Alpha release claim is made.
+
+The next implementation slice is Task 3: the authoritative Story domain and
+reconciliation rules.

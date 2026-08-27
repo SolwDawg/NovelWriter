@@ -1,0 +1,98 @@
+{
+  "story_intent": {
+    "schema_version": 1,
+    "raw_idea": "Một người trông coi kho lưu trữ nghe thấy tiếng gõ từ căn phòng đã bị niêm phong.",
+    "normalized_idea": "Người trông coi phải giải mã tiếng gõ trước khi bí mật bị chôn vùi.",
+    "language": "vi-VN",
+    "genre": "Mystery",
+    "target_words": 3000,
+    "hard_constraints": ["Không tiết lộ hung thủ trước cảnh cuối"],
+    "continuity_traps": ["location", "hidden reveal"]
+  },
+  "story_blueprint": {
+    "schema_version": 1,
+    "title": "Tiếng Gõ Sau Bức Tường",
+    "logline": "Một thủ thư lần theo âm thanh trong kho lưu trữ và phát hiện lời thú tội bị khóa kín.",
+    "protagonist": "Linh, người trông coi kho lưu trữ",
+    "central_conflict": "Linh phải tìm nguồn tiếng gõ mà không phá hủy bằng chứng.",
+    "reversals": ["Kho niêm phong không hề trống", "Người gửi tín hiệu chính là nhân chứng mất tích"],
+    "climax": "Linh mở được ngăn hồ sơ cuối cùng khi kẻ che giấu quay lại.",
+    "resolution": "Sự thật được phục hồi và kho lưu trữ trở thành bằng chứng công khai.",
+    "scene_count": 6,
+    "language": "vi-VN",
+    "genre": "Mystery"
+  },
+  "scene_plan": {
+    "schema_version": 1,
+    "scene_id": "scene-001",
+    "index": 1,
+    "purpose": "Thiết lập kho lưu trữ và tiếng gõ đầu tiên.",
+    "required_outcome": "Linh xác định tiếng gõ phát ra từ phòng niêm phong.",
+    "required_facts": ["Phòng bị niêm phong từ năm năm trước"],
+    "forbidden_reveals": ["Danh tính người gửi tín hiệu"],
+    "active_threads": ["nguồn tiếng gõ", "hồ sơ mất tích"],
+    "target_tension": 5,
+    "target_words": 500,
+    "pov": "Linh",
+    "location": "Kho lưu trữ tầng hầm",
+    "participants": ["Linh"]
+  },
+  "scene_document_artifact": {
+    "schema_version": 1,
+    "artifact_id": "artifact-scene-001-r1",
+    "scene_id": "scene-001",
+    "revision": 1,
+    "blocks": [
+      {
+        "id": "block-001",
+        "type": "paragraph",
+        "text": "Tiếng gõ vang lên sau bức tường phủ bụi.",
+        "speaker_id": "Linh"
+      }
+    ]
+  },
+  "story_state": {
+    "schema_version": 1,
+    "version": 0,
+    "scene_index": 0,
+    "characters": {
+      "linh": { "name": "Linh", "knowledge": ["phòng bị niêm phong"] }
+    },
+    "facts": { "sealed_room": true },
+    "inventory": { "linh": "chìa khóa kho" },
+    "locations": { "linh": "kho lưu trữ tầng hầm" },
+    "timeline": [],
+    "open_threads": ["nguồn tiếng gõ"],
+    "resolved_threads": []
+  },
+  "story_state_delta": {
+    "schema_version": 1,
+    "scene_id": "scene-001",
+    "changes": [
+      { "path": "facts.knocking_heard", "value": true, "event_id": "event-001", "operation": "set" }
+    ],
+    "opened_threads": ["hồ sơ mất tích"],
+    "resolved_threads": [],
+    "proposed_by": "state_extractor"
+  },
+  "ai_artifact_ref": {
+    "schema_version": 1,
+    "artifact_id": "artifact-scene-001-r1",
+    "artifact_type": "scene_document",
+    "content_hash": "sha256:fixture",
+    "content_type": "application/json",
+    "byte_size": 256,
+    "storage_key": "stories/story-001/scenes/scene-001/revision-1.json"
+  },
+  "ai_usage": {
+    "schema_version": 1,
+    "provider": "fixture",
+    "model": "fixture-model",
+    "input_tokens": 100,
+    "output_tokens": 200,
+    "total_tokens": 300,
+    "estimated_cost_usd": 0,
+    "request_id": "fixture-request",
+    "latency_ms": 12
+  }
+}

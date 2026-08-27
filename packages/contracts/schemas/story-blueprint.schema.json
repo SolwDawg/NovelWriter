@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:novel-writer:contract:v1:StoryBlueprint",
+  "title": "StoryBlueprint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "title",
+    "logline",
+    "protagonist",
+    "central_conflict",
+    "reversals",
+    "climax",
+    "resolution",
+    "scene_count"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "logline": { "type": "string", "minLength": 1 },
+    "protagonist": { "type": "string", "minLength": 1 },
+    "central_conflict": { "type": "string", "minLength": 1 },
+    "reversals": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    },
+    "climax": { "type": "string", "minLength": 1 },
+    "resolution": { "type": "string", "minLength": 1 },
+    "scene_count": { "type": "integer", "minimum": 1, "maximum": 100 },
+    "language": { "type": "string", "minLength": 2 },
+    "genre": { "enum": ["Mystery", "Thriller", "Horror"] }
+  }
+}

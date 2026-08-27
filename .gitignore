@@ -9,6 +9,15 @@ env.txt
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.venv/
+
+# JavaScript/TypeScript workspace output
+node_modules/
+.pnpm-store/
+dist/
+.next/
+.turbo/
+*.log
 
 # Generated benchmark artifacts (stories and machine journals stay local)
 ai-short-story-platform-spec-pack-v2-reviewed/experiments/story-engine-v0/results/*/stories/

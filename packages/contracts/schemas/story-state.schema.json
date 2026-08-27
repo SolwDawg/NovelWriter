@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:novel-writer:contract:v1:StoryState",
+  "title": "StoryState",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "version",
+    "scene_index",
+    "characters",
+    "facts",
+    "inventory",
+    "locations",
+    "timeline",
+    "open_threads",
+    "resolved_threads"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "version": { "type": "integer", "minimum": 0 },
+    "scene_index": { "type": "integer", "minimum": 0 },
+    "characters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "facts": {
+      "type": "object",
+      "additionalProperties": {}
+    },
+    "inventory": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "locations": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "timeline": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "open_threads": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "resolved_threads": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

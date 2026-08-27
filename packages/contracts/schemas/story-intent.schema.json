@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:novel-writer:contract:v1:StoryIntent",
+  "title": "StoryIntent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "raw_idea",
+    "language",
+    "genre",
+    "target_words",
+    "hard_constraints"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "story_id": { "type": "string", "minLength": 1 },
+    "project_id": { "type": "string", "minLength": 1 },
+    "raw_idea": { "type": "string", "minLength": 1 },
+    "normalized_idea": { "type": "string", "minLength": 1 },
+    "language": { "type": "string", "minLength": 2 },
+    "genre": { "enum": ["Mystery", "Thriller", "Horror"] },
+    "target_words": { "type": "integer", "minimum": 3000, "maximum": 15000 },
+    "hard_constraints": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    },
+    "continuity_traps": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

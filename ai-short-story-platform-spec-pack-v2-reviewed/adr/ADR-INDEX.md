@@ -21,3 +21,4 @@
 - ADR-0019: Application-owned Argon2id + opaque server-side sessions for Alpha auth.
 - ADR-0020: MinIO locally/early self-hosted behind the S3-compatible ObjectStorage interface.
 - ADR-0021: Deterministic fixture provider is the initial V0 model configuration; live model pending benchmark.
+- ADR-0022: Defer the V0 live/human gate during foundation work.

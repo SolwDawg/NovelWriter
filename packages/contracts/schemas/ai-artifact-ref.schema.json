@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:novel-writer:contract:v1:AIArtifactRef",
+  "title": "AIArtifactRef",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "content_hash",
+    "content_type",
+    "byte_size",
+    "storage_key"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "artifact_id": { "type": "string", "minLength": 1 },
+    "artifact_type": { "type": "string", "minLength": 1 },
+    "content_hash": { "type": "string", "minLength": 1 },
+    "content_type": { "type": "string", "minLength": 1 },
+    "byte_size": { "type": "integer", "minimum": 0 },
+    "storage_key": { "type": "string", "minLength": 1 },
+    "expires_at": { "type": "string", "minLength": 1 }
+  }
+}

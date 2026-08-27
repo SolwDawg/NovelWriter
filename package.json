@@ -1,0 +1,21 @@
+{
+  "name": "novel-writer",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "dev:web": "pnpm --filter @story-platform/web dev",
+    "dev:api": "pnpm --filter @story-platform/api dev",
+    "dev:workflow-worker": "pnpm --filter @story-platform/workflow-worker dev",
+    "lint": "node scripts/lint-smoke.mjs",
+    "test": "pnpm --filter @story-platform/contracts test",
+    "test:python": "python -m unittest discover -s services/ai-worker/tests -q",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "ajv": "^8.17.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.2"
+  }
+}

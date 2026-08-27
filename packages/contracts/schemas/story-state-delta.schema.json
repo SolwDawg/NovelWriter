@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:novel-writer:contract:v1:StoryStateDelta",
+  "title": "StoryStateDelta",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scene_id",
+    "changes",
+    "opened_threads",
+    "resolved_threads",
+    "proposed_by"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "scene_id": { "type": "string", "minLength": 1 },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "value", "event_id", "operation"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "value": {},
+          "event_id": { "type": "string", "minLength": 1 },
+          "operation": { "enum": ["set", "unset", "append"] }
+        }
+      }
+    },
+    "opened_threads": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "resolved_threads": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "proposed_by": { "const": "state_extractor" }
+  }
+}

@@ -138,6 +138,10 @@ git commit -m "feat: prove structured story engine"
 
 ## Task 2: Scaffold the monorepo and shared contracts
 
+> Execution note (2026-08-27): the V0 live-provider and human paired gate is
+> explicitly deferred per ADR-0022 so foundation work can proceed. The V0 gate
+> remains not ready for release claims.
+
 **Files:**
 - Create: `apps/web/`
 - Create: `apps/api/`
@@ -153,19 +157,19 @@ git commit -m "feat: prove structured story engine"
 - Canonical cross-runtime schemas live in `packages/contracts/schemas/`.
 - Initial schemas: `StoryIntent`, `StoryBlueprint`, `ScenePlan`, `SceneDocumentArtifact`, `StoryState`, `StoryStateDelta`, `AIArtifactRef`, `AIUsage`.
 
-- [ ] **Step 1: Write contract generation smoke test**
+- [x] **Step 1: Write contract generation smoke test**
 
 The test must validate a fixture against the canonical JSON Schema and import the generated TypeScript/Python equivalent.
 
-- [ ] **Step 2: Scaffold apps/services without business features**
+- [x] **Step 2: Scaffold apps/services without business features**
 
 Each process exposes only a health check or worker startup command.
 
-- [ ] **Step 3: Add Docker infrastructure needed for the next vertical slice**
+- [x] **Step 3: Add Docker infrastructure needed for the next vertical slice**
 
 Start with PostgreSQL/pgvector and Temporal only if Task 4 needs them; Redis/ObjectStorage may be added when their first use appears. Do not create unused infrastructure merely because it exists in the future architecture.
 
-- [ ] **Step 4: Verify commands**
+- [x] **Step 4: Verify commands**
 
 ```bash
 pnpm lint
@@ -173,7 +177,7 @@ pnpm test
 uv run pytest services/ai-worker/tests -q
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add .
