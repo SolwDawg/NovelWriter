@@ -22,6 +22,10 @@
 - Task 2 monorepo foundation is implemented at the repository root: canonical
   JSON Schemas, TypeScript/Python equivalents, process shells, and development
   Compose infrastructure.
+- Task 3 authoritative Story domain is implemented under
+  `apps/api/src/modules`: one-authority Story Bible rules, locked Canon checks,
+  optimistic state/Canon version checks, idempotent validated scene commits,
+  and dirty/reconciliation status transitions.
 
 ## Verification
 
@@ -54,7 +58,8 @@ The contract smoke test validates all eight fixtures against the canonical
 schemas with Ajv. API and web health shells were exercised locally. Docker
 Compose could not be executed on the implementation host because the Docker
 CLI is not installed; the Compose file is intended for the local development
-environment.
+environment. Story domain tests pass with `pnpm --filter
+@story-platform/api test`.
 
 ## Deferred gate
 
@@ -64,5 +69,5 @@ development-sequencing decision recorded in
 [`experiments/story-engine-v0/results/V0-GATE.md`](experiments/story-engine-v0/results/V0-GATE.md)
 remains `NOT READY`; no Alpha release claim is made.
 
-The next implementation slice is Task 3: the authoritative Story domain and
-reconciliation rules.
+The next implementation slice is Task 4: persistence for Story,
+SceneDocument, immutable versions, and atomic commits.

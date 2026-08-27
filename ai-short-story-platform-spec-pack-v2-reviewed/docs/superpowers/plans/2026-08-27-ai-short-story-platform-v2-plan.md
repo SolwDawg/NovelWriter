@@ -188,6 +188,8 @@ git commit -m "chore: scaffold story platform monorepo"
 
 ## Task 3: Implement the authoritative Story domain and reconciliation rules
 
+> Execution note (2026-08-27): implemented and pushed in commit `1bb9400`.
+
 **Files:**
 - Create: `apps/api/src/modules/story/domain/`
 - Create: `apps/api/src/modules/story/application/`
@@ -216,29 +218,29 @@ export interface ApplyValidatedSceneCommand {
 }
 ```
 
-- [ ] **Step 1: Write failing tests for one-authority invariants**
+- [x] **Step 1: Write failing tests for one-authority invariants**
 
 Test that a first-class relationship cannot also be mutated through an unrelated generic-fact write path.
 
-- [ ] **Step 2: Write failing tests for locked Canon and stale versions**
+- [x] **Step 2: Write failing tests for locked Canon and stale versions**
 
 A locked fact mutation or stale state/canon commit must fail deterministically.
 
-- [ ] **Step 3: Write failing tests for dirty story semantics**
+- [x] **Step 3: Write failing tests for dirty story semantics**
 
 Editing/restoring a committed upstream scene must set `dirtyFromSceneId` to the earliest affected scene and block clean downstream generation until reconciliation.
 
-- [ ] **Step 4: Implement minimal domain entities/value objects/services**
+- [x] **Step 4: Implement minimal domain entities/value objects/services**
 
 Keep StoryState as a versioned materialized JSON-friendly projection plus StateDelta history. Do not create a normalized CharacterState history table yet.
 
-- [ ] **Step 5: Run domain tests**
+- [x] **Step 5: Run domain tests**
 
 ```bash
 pnpm --filter api test -- story-domain
 ```
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add apps/api/src/modules/story apps/api/src/modules/story-bible apps/api/src/modules/document apps/api/test/story-domain
