@@ -26,6 +26,11 @@
   `apps/api/src/modules`: one-authority Story Bible rules, locked Canon checks,
   optimistic state/Canon version checks, idempotent validated scene commits,
   and dirty/reconciliation status transitions.
+- Task 4 persistence core is implemented under
+  `apps/api/src/infrastructure/database` and the owning document/story
+  modules: Drizzle schema, SQL migration, PostgreSQL repositories, document
+  base-revision checks, atomic scene-commit transaction boundary, transactional
+  outbox receipt, and idempotency uniqueness.
 
 ## Verification
 
@@ -52,6 +57,7 @@ pnpm lint
 pnpm test
 pnpm typecheck
 pnpm test:python
+pnpm --filter @story-platform/api test:integration
 ```
 
 The contract smoke test validates all eight fixtures against the canonical
@@ -59,7 +65,13 @@ schemas with Ajv. API and web health shells were exercised locally. Docker
 Compose could not be executed on the implementation host because the Docker
 CLI is not installed; the Compose file is intended for the local development
 environment. Story domain tests pass with `pnpm --filter
-@story-platform/api test`.
+@story-platform/api test`; persistence transaction/revision tests pass with
+`pnpm --filter @story-platform/api test:integration`.
+
+The persistence test suite currently exercises transaction semantics and
+revision behavior without a live database. The PostgreSQL integration run is
+pending on a host with Docker/PostgreSQL; `pnpm --filter
+@story-platform/api db:migrate` is provided for that environment.
 
 ## Deferred gate
 
@@ -69,5 +81,6 @@ development-sequencing decision recorded in
 [`experiments/story-engine-v0/results/V0-GATE.md`](experiments/story-engine-v0/results/V0-GATE.md)
 remains `NOT READY`; no Alpha release claim is made.
 
-The next implementation slice is Task 4: persistence for Story,
-SceneDocument, immutable versions, and atomic commits.
+The remaining Task 4 gate is the live PostgreSQL integration run. After that,
+the next implementation slice is Task 5: port the proven V0 AI capabilities
+into the production Python worker.

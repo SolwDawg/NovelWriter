@@ -1,9 +1,18 @@
 import { cloneStory, type Story } from "../domain/entities.js";
 import { StoryDomainError } from "../domain/errors.js";
+import type { ApplyValidatedSceneCommand } from "../domain/commands.js";
 
 export interface StoryRepository {
   get(storyId: string): Promise<Story>;
   save(story: Story, expectedVersion: number): Promise<void>;
+}
+
+export interface AtomicSceneCommitRepository extends StoryRepository {
+  commitValidatedScene(
+    current: Story,
+    next: Story,
+    command: ApplyValidatedSceneCommand,
+  ): Promise<Story>;
 }
 
 export class InMemoryStoryRepository implements StoryRepository {

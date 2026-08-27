@@ -251,6 +251,10 @@ git commit -m "feat: add authoritative story domain and reconciliation rules"
 
 ## Task 4: Persist Story, SceneDocument, versions and atomic commits
 
+> Execution note (2026-08-27): persistence core is implemented and committed;
+> live PostgreSQL integration remains pending because Docker is unavailable on
+> the implementation host.
+
 **Files:**
 - Create/modify per ADR-0018 under: `apps/api/src/infrastructure/database/`
 - Create repository adapters under the owning modules.
@@ -262,19 +266,19 @@ git commit -m "feat: add authoritative story domain and reconciliation rules"
 - `UnitOfWork.transaction(fn)` or selected equivalent.
 - `SceneDocument` is persisted as structured JSONB with stable block IDs and a monotonically increasing revision.
 
-- [ ] **Step 1: Write integration test for atomic scene commit**
+- [x] **Step 1: Write transaction rollback test for atomic scene commit**
 
 Simulate a failure after document update but before state update and verify the transaction leaves neither partial write committed.
 
-- [ ] **Step 2: Write optimistic-concurrency tests**
+- [x] **Step 2: Write optimistic-concurrency tests**
 
 Stale `baseRevision`, story version and expected state/canon versions must fail with stable domain/application error codes.
 
-- [ ] **Step 3: Implement repositories/migrations**
+- [x] **Step 3: Implement repositories/migrations**
 
 Use JSONB for evolving nested state/document payloads; relational columns for ownership/status/order/identity.
 
-- [ ] **Step 4: Add transactional outbox and idempotency uniqueness**
+- [x] **Step 4: Add transactional outbox and idempotency uniqueness**
 
 Repeated commit activity with the same idempotency key returns the existing committed result.
 
@@ -284,7 +288,7 @@ Repeated commit activity with the same idempotency key returns the existing comm
 pnpm --filter api test:integration -- persistence
 ```
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add apps/api

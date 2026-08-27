@@ -36,6 +36,8 @@ Start the infrastructure when needed by the next vertical slice:
 
 ```powershell
 docker compose -f infra/docker/compose.yml up -d postgres temporal
+$env:DATABASE_URL = "postgres://story:story@localhost:5432/story_platform"
+pnpm --filter @story-platform/api db:migrate
 ```
 
 Run the process shells in separate terminals:

@@ -17,6 +17,7 @@ export type StoryConsistencyStatus =
   | "NEEDS_REVIEW";
 
 export type StoryStatus = "DRAFT" | "GENERATING" | "COMPLETE";
+export type StoryOutputMode = "standard";
 
 export interface Story {
   id: string;
@@ -26,6 +27,7 @@ export interface Story {
   targetWordCount: number;
   language: string;
   genre: StoryIntent["genre"];
+  outputMode: StoryOutputMode;
   intent: StoryIntent;
   blueprint?: StoryBlueprint;
   state: StoryState;
@@ -71,6 +73,7 @@ export function createStory(input: CreateStoryInput): Story {
     targetWordCount: input.intent.target_words,
     language: input.intent.language,
     genre: input.intent.genre,
+    outputMode: "standard",
     intent: structuredClone(input.intent),
     state: createEmptyStoryState(),
     canonVersion: 1,

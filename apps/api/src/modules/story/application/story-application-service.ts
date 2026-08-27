@@ -15,7 +15,10 @@ import type {
   ReconciliationResult,
 } from "../domain/commands.js";
 import type { Story } from "../domain/entities.js";
-import type { StoryRepository } from "./story-repository.js";
+import type {
+  AtomicSceneCommitRepository,
+  StoryRepository,
+} from "./story-repository.js";
 
 export class StoryApplicationService {
   constructor(private readonly repository: StoryRepository) {}
@@ -31,6 +34,9 @@ export class StoryApplicationService {
     const current = await this.repository.get(command.storyId);
     const next = applyValidatedScene(current, command);
     if (next.version === current.version) return next;
+    if (this.isAtomicSceneCommitRepository(this.repository)) {
+      return this.repository.commitValidatedScene(current, next, command);
+    }
     await this.repository.save(next, current.version);
     return next;
   }
@@ -62,5 +68,12 @@ export class StoryApplicationService {
     const next = completeReconciliation(current, result);
     await this.repository.save(next, current.version);
     return next;
+  }
+
+  private isAtomicSceneCommitRepository(
+    repository: StoryRepository,
+  ): repository is AtomicSceneCommitRepository {
+    return "commitValidatedScene" in repository &&
+      typeof repository.commitValidatedScene === "function";
   }
 }
